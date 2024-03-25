@@ -1,0 +1,14 @@
+.Button {
+    box-sizing: border-box;
+    height: 44px;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #3563E9;
+    border-radius: 4px;
+    cursor: pointer;
+}
