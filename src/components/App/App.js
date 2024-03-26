@@ -8,10 +8,12 @@ export function App() {
     useEffect(() => {
         fetch('https://demo5394722.mockable.io/cars')
             .then((res) => (res.json()))
-            .then((data) => {setGalleryItems(data)});
+            .then((data) => {
+                setGalleryItems(data);
+            });
     });
 
     return (
         <CatalogContent galleryItems={galleryItems}/>
     );
-};
+}
