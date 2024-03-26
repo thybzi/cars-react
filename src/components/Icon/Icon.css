@@ -1,0 +1,31 @@
+:root {
+    --icon-size: 24px;
+}
+
+.Icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+}
+
+.Icon_heartOutline {
+    background-image: url(images/heartOutline.svg);
+}
+
+.Icon_heart {
+    background-image: url(images/heart.svg);
+}
+
+.Icon_fuel {
+    background-image: url(images/fuel.svg);
+}
+
+.Icon_steer {
+    background-image: url(images/steer.svg);
+}
+
+.Icon_people {
+    background-image: url(images/people.svg);
+}

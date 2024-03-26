@@ -1,0 +1,140 @@
+:root {
+    --catalogItem-pad: 24px;
+}
+
+.CatalogItem {
+    position: relative;
+    box-sizing: border-box;
+    height: 388px;
+    padding: var(--catalogItem-pad);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.CatalogItem__titleBlock {
+    margin-right: calc(var(--icon-size) + var(--catalogItem-pad));
+}
+
+.CatalogItem__title {
+    color: #1A202C;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.6px;
+}
+
+.CatalogItem__category {
+    margin-top: 4px;
+    color: #90A3BF;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+}
+
+.CatalogItem__favorite {
+    position: absolute;
+    top: var(--catalogItem-pad);
+    right: var(--catalogItem-pad);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    cursor: pointer;
+}
+
+.CatalogItem__imageBlock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 132px;
+    margin-top: 28px;
+}
+
+.CatalogItem__image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.CatalogItem__imageBlock::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 66px;
+    background-image: linear-gradient(to top, #FFFFFF, rgba(255, 255, 255, 0));
+    content: '';
+}
+
+.CatalogItem__details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+.CatalogItem__detailsItem {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.catalogItem__detailsItemIcon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.CatalogItem__detailsItemCaption {
+    color: #90A3BF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+}
+
+.CatalogItem__rentBlock {
+    position: absolute;
+    right: var(--catalogItem-pad);
+    bottom: var(--catalogItem-pad);
+    left: var(--catalogItem-pad);
+    display: flex;
+    align-items: center;
+}
+
+.CatalogItem__priceBlock {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.CatalogItem__priceRow {
+    white-space: nowrap;
+}
+
+.CatalogItem__oldPrice {
+    margin-top: 4px;
+    color: #90A3BF;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    text-decoration: line-through;
+}
+
+.CatalogItem__price {
+    color: #1A202C;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    vertical-align: bottom;
+}
+
+.CatalogItem__subject {
+    color: #90A3BF;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.CatalogItem__rentButton {
+    flex-grow: 0;
+    flex-shrink: 0;
+}

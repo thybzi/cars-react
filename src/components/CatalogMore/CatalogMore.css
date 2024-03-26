@@ -1,0 +1,31 @@
+:root {
+    --catalogMore__caption-width: 140px;
+}
+
+.CatalogMore {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.CatalogMore::before {
+    width: var(--catalogMore__caption-width);
+    content: '';
+}
+
+.CatalogMore__button {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.CatalogMore__caption {
+    width: var(--catalogMore__caption-width);
+    color: #90A3BF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.28px;
+    text-align: right;
+}
