@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import './Button.css';
 
 export function Button({
@@ -7,7 +8,7 @@ export function Button({
 }) {
     return (
         <div
-            className={'Button ' + auxClass}
+            className={clsx(['Button', auxClass])}
         >
             {text}
         </div>
