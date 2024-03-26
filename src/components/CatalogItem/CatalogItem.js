@@ -4,6 +4,7 @@ import {Button} from '../Button/Button';
 import './CatalogItem.css';
 
 export function CatalogItem({
+    id,
     title,
     category,
     image,
@@ -54,7 +55,7 @@ export function CatalogItem({
             <div className="CatalogItem__imageBlock">
                 <img
                     className="CatalogItem__image"
-                    src={`https://ik.imagekit.io/thybzi/${image}`}
+                    src={image.startsWith('http') ? `${image}?${id}` : `https://ik.imagekit.io/thybzi/${image}`}
                 />
             </div>
             <div className="CatalogItem__details">
