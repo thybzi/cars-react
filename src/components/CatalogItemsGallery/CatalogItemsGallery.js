@@ -1,4 +1,3 @@
-import React from 'react';
 import {CatalogItem} from '../CatalogItem/CatalogItem';
 import './CatalogItemsGallery.css';
 

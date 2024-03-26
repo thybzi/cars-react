@@ -48,7 +48,6 @@ module.exports = {
         'import/no-default-export': 'error',
         'import/prefer-default-export': 'off',
         // @TODO разобраться с этими настройками
-        'no-unused-vars': 'off',
         'react/prop-types': 'off',
     },
 };

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import './CatalogItem.css';
