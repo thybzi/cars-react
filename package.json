@@ -2,6 +2,7 @@
   "name": "cars-react",
   "version": "1.0.0",
   "description": "",
+  "homepage": "http://thybzi.github.io/cars-react",
   "main": "index.js",
   "engines": {
     "node": ">= 18.12.0"
