@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import './Button.css';
+import './Button.scss';
 
 export function Button({
     text,

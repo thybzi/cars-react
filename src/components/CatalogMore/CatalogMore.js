@@ -1,5 +1,5 @@
 import {Button} from '../Button/Button';
-import './CatalogMore.css';
+import './CatalogMore.scss';
 
 export function CatalogMore() {
     return (

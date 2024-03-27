@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {CatalogContent} from '../CatalogContent/CatalogContent';
-import './App.css';
+import './App.scss';
 
 export function App() {
     const [galleryItems, setGalleryItems] = useState([]);

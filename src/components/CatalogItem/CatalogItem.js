@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
-import './CatalogItem.css';
+import './CatalogItem.scss';
 
 export function CatalogItem({
     title,

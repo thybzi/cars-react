@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import './Icon.css';
+import './Icon.scss';
 
 export function Icon({
     name,
