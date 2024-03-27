@@ -1,5 +1,5 @@
 import {CatalogItem} from '../CatalogItem/CatalogItem';
-import './CatalogItemsGallery.css';
+import './CatalogItemsGallery.scss';
 
 export function CatalogItemsGallery({
     items = [],

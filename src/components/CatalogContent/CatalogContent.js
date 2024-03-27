@@ -1,4 +1,4 @@
-import './CatalogContent.css';
+import './CatalogContent.scss';
 import {useState} from 'react';
 import {CatalogItemsGallery} from '../CatalogItemsGallery/CatalogItemsGallery';
 import {CatalogMore} from '../CatalogMore/CatalogMore';
