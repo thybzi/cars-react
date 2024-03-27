@@ -17,6 +17,18 @@ module.exports = {
                 },
             },
             {
+                test: /\.module.scss$/,
+                use: [
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        },
+                    },
+                    'sass-loader',
+                ],
+            },
+            {
                 test: /\.scss$/i,
                 use: [
                     // Creates `style` nodes from JS strings
