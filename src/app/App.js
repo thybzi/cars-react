@@ -49,10 +49,20 @@ export function App() {
                 return processItemData(data);
             },
         },
+        {
+            path: '/favorites',
+            element: <CatalogPage/>,
+            loader: async () => {
+                const res = await fetch(apiUrl);
+                const data = await res.json();
+                return data.filter(({id}) => (isItemFavorite(id))).map(processItemData);
+            },
+        },
     ]);
 
     return (
         <AppContext.Provider value={{
+            favorites,
             isItemFavorite,
             toggleItemFavorite,
         }}>

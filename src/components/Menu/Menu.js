@@ -6,6 +6,7 @@ export function Menu() {
     const menuItems = [
         {url: '/', caption: 'Home'},
         {url: '/catalog', caption: 'Catalog'},
+        {url: '/favorites', caption: 'Favorites'},
     ];
 
     return (
