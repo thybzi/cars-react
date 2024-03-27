@@ -1,4 +1,6 @@
+import {useState} from 'react';
 import {RouterProvider, createHashRouter} from 'react-router-dom';
+import {AppContext} from './AppContext';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
@@ -6,6 +8,24 @@ import {processItemData} from '../helpers/processItemData';
 import {API_URL} from '../shared/settings';
 
 export function App() {
+    const [favorites, setFavorites] = useState(new Set());
+
+    function isItemFavorite(itemId) {
+        return favorites.has(itemId);
+    }
+
+    function toggleItemFavorite(itemId) {
+        const newFavorites = new Set(favorites);
+
+        if (newFavorites.has(itemId)) {
+            newFavorites.delete(itemId);
+        } else {
+            newFavorites.add(itemId);
+        }
+
+        setFavorites(newFavorites);
+    }
+
     const router = createHashRouter([
         {
             path: '/',
@@ -32,6 +52,11 @@ export function App() {
     ]);
 
     return (
-        <RouterProvider router={router}/>
+        <AppContext.Provider value={{
+            isItemFavorite,
+            toggleItemFavorite,
+        }}>
+            <RouterProvider router={router}/>
+        </AppContext.Provider>
     );
 }

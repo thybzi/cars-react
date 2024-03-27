@@ -1,5 +1,6 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {AppContext} from '../../app/AppContext';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import './CatalogItem.scss';
@@ -10,13 +11,13 @@ export function CatalogItem({
     category,
     image,
     volume,
-    isFavorite: defaultIsFavorite,
     gear,
     capacity,
     price,
     oldPrice,
 }) {
-    const [isFavorite, setIsFavorite] = useState(defaultIsFavorite);
+    const {isItemFavorite, toggleItemFavorite} = useContext(AppContext);
+    const [isFavorite, setIsFavorite] = useState(isItemFavorite(id));
     const navigate = useNavigate();
 
     const favoriteIconElemClass = 'CatalogItem__favoriteIcon';
@@ -47,6 +48,7 @@ export function CatalogItem({
                 className="CatalogItem__favorite"
                 onClick={() => {
                     setIsFavorite(!isFavorite);
+                    toggleItemFavorite(id);
                 }}
             >
                 <Icon
