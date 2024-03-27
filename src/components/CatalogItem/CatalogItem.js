@@ -15,6 +15,7 @@ export function CatalogItem({
     capacity,
     price,
     oldPrice,
+    noFavoriteIcon = false,
 }) {
     const {isItemFavorite, toggleItemFavorite} = useContext(AppContext);
     const [isFavorite, setIsFavorite] = useState(isItemFavorite(id));
@@ -43,18 +44,20 @@ export function CatalogItem({
                 <div className={classes.CatalogItem__title}>{title}</div>
                 <div className={classes.CatalogItem__category}>{category}</div>
             </div>
-            <div
-                className={classes.CatalogItem__favorite}
-                onClick={() => {
-                    setIsFavorite(!isFavorite);
-                    toggleItemFavorite(id);
-                }}
-            >
-                <Icon
-                    name={favoriteIconName}
-                    auxClass={classes.CatalogItem__favoriteIcon}
-                />
-            </div>
+            {!noFavoriteIcon && (
+                <div
+                    className={classes.CatalogItem__favorite}
+                    onClick={() => {
+                        setIsFavorite(!isFavorite);
+                        toggleItemFavorite(id);
+                    }}
+                >
+                    <Icon
+                        name={favoriteIconName}
+                        auxClass={classes.CatalogItem__favoriteIcon}
+                    />
+                </div>
+            )}
             <div className={classes.CatalogItem__imageBlock}>
                 <img
                     className={classes.CatalogItem__image}
