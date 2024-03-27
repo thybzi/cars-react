@@ -12,6 +12,10 @@ export function Menu() {
             url: '/catalog',
             caption: 'Catalog',
         },
+        {
+            url: '/favorites',
+            caption: 'Favorites',
+        },
     ];
 
     return (
