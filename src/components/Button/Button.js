@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import './Button.scss';
+import classes from './Button.module.scss';
 
 export function Button({
     text,
@@ -8,7 +8,7 @@ export function Button({
 }) {
     return (
         <div
-            className={clsx(['Button', auxClass])}
+            className={clsx([classes.Button, auxClass])}
             {...props}
         >
             {text}

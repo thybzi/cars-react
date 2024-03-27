@@ -1,11 +1,11 @@
 import {CatalogItem} from '../CatalogItem/CatalogItem';
-import './CatalogItemsGallery.scss';
+import classes from './CatalogItemsGallery.module.scss';
 
 export function CatalogItemsGallery({
     items = [],
 }) {
     return (
-        <div className="CatalogItemsGallery">
+        <div className={classes.CatalogItemsGallery}>
             {items.map((itemData, i) => (
                 <CatalogItem
                     key={i}
