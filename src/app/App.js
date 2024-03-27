@@ -32,6 +32,16 @@ export function App() {
                 return processItemData(data);
             },
         },
+        {
+            path: '/favorites',
+            element: <CatalogPage/>,
+            loader: async () => {
+                const {favorites} = store.getState();
+                const res = await fetch(apiUrl);
+                const data = await res.json();
+                return data.filter(({id}) => (favorites.includes(id))).map(processItemData);
+            },
+        },
     ]);
 
     return (
