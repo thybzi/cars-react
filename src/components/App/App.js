@@ -1,17 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {CatalogContent} from '../CatalogContent/CatalogContent';
-import data from './data.json';
 import './App.css';
 
 export function App() {
     const [galleryItems, setGalleryItems] = useState([]);
 
-    useEffect(() => {
-        setGalleryItems(data);
-    }, [data]);
-
-    /*
-    const apiUrl = 'https://demo5394722.mockable.io/cars';
+    const apiUrl = 'https://660247539d7276a75552f2f5.mockapi.io/cars/list';
 
     useEffect(() => {
         fetch(apiUrl)
@@ -20,7 +14,6 @@ export function App() {
                 setGalleryItems(data);
             });
     }, [apiUrl]);
-    */
 
     return (
         <CatalogContent galleryItems={galleryItems}/>
