@@ -1,6 +1,6 @@
 import {NavLink} from 'react-router-dom';
 import clsx from 'clsx';
-import './Menu.scss';
+import classes from './Menu.module.scss';
 
 export function Menu() {
     const menuItems = [
@@ -9,14 +9,14 @@ export function Menu() {
     ];
 
     return (
-        <div className="Menu">
+        <div className={classes.Menu}>
             {menuItems.map(({url, caption}) => ((
                 <NavLink
                     key={url}
                     to={url}
                     className={({isActive}) => (clsx([
-                        'Menu__item',
-                        isActive && 'Menu__item_active',
+                        classes.Menu__item,
+                        isActive && classes.Menu__item_active,
                     ]))}
                 >
                     {caption}

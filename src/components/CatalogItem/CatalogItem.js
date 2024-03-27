@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
-import './CatalogItem.scss';
+import classes from './CatalogItem.module.scss';
 
 export function CatalogItem({
     id,
@@ -19,7 +19,6 @@ export function CatalogItem({
     const [isFavorite, setIsFavorite] = useState(defaultIsFavorite);
     const navigate = useNavigate();
 
-    const favoriteIconElemClass = 'CatalogItem__favoriteIcon';
     const favoriteIconName = isFavorite ? 'heart' : 'heartOutline';
 
     function Details({
@@ -27,40 +26,40 @@ export function CatalogItem({
         text,
     }) {
         return (
-            <div className="CatalogItem__detailsItem">
+            <div className={classes.CatalogItem__detailsItem}>
                 <Icon
                     name={iconName}
-                    auxClass='CatalogItem__detailsItemIcon'
+                    auxClass={classes.CatalogItem__detailsItemIcon}
                 />
-                <div className="CatalogItem__detailsItemCaption">{text}</div>
+                <div className={classes.CatalogItem__detailsItemCaption}>{text}</div>
             </div>
         );
     }
 
     return (
-        <div className="CatalogItem">
-            <div className="CatalogItem__titleBlock">
-                <div className="CatalogItem__title">{title}</div>
-                <div className="CatalogItem__category">{category}</div>
+        <div className={classes.CatalogItem}>
+            <div className={classes.CatalogItem__titleBlock}>
+                <div className={classes.CatalogItem__title}>{title}</div>
+                <div className={classes.CatalogItem__category}>{category}</div>
             </div>
             <div
-                className="CatalogItem__favorite"
+                className={classes.CatalogItem__favorite}
                 onClick={() => {
                     setIsFavorite(!isFavorite);
                 }}
             >
                 <Icon
                     name={favoriteIconName}
-                    auxClass={favoriteIconElemClass}
+                    auxClass={classes.CatalogItem__favoriteIcon}
                 />
             </div>
-            <div className="CatalogItem__imageBlock">
+            <div className={classes.CatalogItem__imageBlock}>
                 <img
-                    className="CatalogItem__image"
+                    className={classes.CatalogItem__image}
                     src={image}
                 />
             </div>
-            <div className="CatalogItem__details">
+            <div className={classes.CatalogItem__details}>
                 <Details
                     iconName='fuel'
                     text={`${volume}L`}
@@ -74,17 +73,19 @@ export function CatalogItem({
                     text={`${capacity} People`}
                 />
             </div>
-            <div className="CatalogItem__rentBlock">
-                <div className="CatalogItem__priceBlock">
-                    <div className="CatalogItem__priceRow">
-                        <span className="CatalogItem__price">${price}/</span>
-                        <span className="CatalogItem__subject">day</span>
+            <div className={classes.CatalogItem__rentBlock}>
+                <div className={classes.CatalogItem__priceBlock}>
+                    <div className={classes.CatalogItem__priceRow}>
+                        <span className={classes.CatalogItem__price}>${price}/</span>
+                        <span className={classes.CatalogItem__subject}>day</span>
                     </div>
-                    {oldPrice && <div className="CatalogItem__oldPrice">${oldPrice}</div>}
+                    {oldPrice && (
+                        <div className={classes.CatalogItem__oldPrice}>${oldPrice}</div>
+                    )}
                 </div>
                 <Button
                     text='Rent Now'
-                    auxClass='CatalogItem__rentButton'
+                    auxClass={classes.CatalogItem__rentButton}
                     onClick={() => {
                         navigate(`/catalog/${id}`);
                     }}

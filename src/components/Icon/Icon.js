@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import './Icon.scss';
+import classes from './Icon.module.scss';
 
 export function Icon({
     name,
@@ -8,8 +8,8 @@ export function Icon({
     return (
         <div
             className={clsx([
-                'Icon',
-                `Icon_${name}`,
+                classes.Icon,
+                classes[`Icon_${name}`],
                 auxClass,
             ])}
         />
