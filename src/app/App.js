@@ -1,12 +1,10 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
-import {HomePage} from '../HomePage/HomePage';
-import {CatalogPage} from '../CatalogPage/CatalogPage';
-import {processItemData} from '../../helpers/processItemData';
-import './App.scss';
+import {HomePage} from '../pages/HomePage/HomePage';
+import {CatalogPage} from '../pages/CatalogPage/CatalogPage';
+import {processItemData} from '../helpers/processItemData';
+import {API_URL} from '../shared/settings';
 
 export function App() {
-    const apiUrl = 'https://660247539d7276a75552f2f5.mockapi.io/cars/list';
-
     const router = createHashRouter([
         {
             path: '/',
@@ -16,7 +14,7 @@ export function App() {
             path: '/catalog',
             element: <CatalogPage/>,
             loader: async () => {
-                const res = await fetch(apiUrl);
+                const res = await fetch(API_URL);
                 const data = await res.json();
                 return data.map(processItemData);
             },
