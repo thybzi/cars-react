@@ -1,6 +1,7 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {HomePage} from '../HomePage/HomePage';
 import {CatalogPage} from '../CatalogPage/CatalogPage';
+import {processItemData} from '../../helpers/processItemData';
 import './App.scss';
 
 export function App() {
@@ -17,7 +18,7 @@ export function App() {
             loader: async () => {
                 const res = await fetch(apiUrl);
                 const data = await res.json();
-                return data;
+                return data.map(processItemData);
             },
         },
     ]);
