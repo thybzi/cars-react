@@ -1,3 +1,5 @@
+@import '../../shared/colors.scss';
+
 :root {
     --catalogItem-pad: 24px;
 }
@@ -8,14 +10,14 @@
     box-sizing: border-box;
     padding: var(--catalogItem-pad);
     border-radius: 10px;
-    background-color: #FFFFFF;
+    background-color: $c_white;
 
     &__titleBlock {
         margin-right: calc(var(--icon-size) + var(--catalogItem-pad));
     }
 
     &__title {
-        color: #1A202C;
+        color: $c_black;
         font-size: 20px;
         font-weight: 700;
         letter-spacing: -0.6px;
@@ -24,7 +26,7 @@
 
     &__category {
         margin-top: 4px;
-        color: #90A3BF;
+        color: $c_gray;
         font-size: 14px;
         font-weight: 700;
         letter-spacing: -0.28px;
@@ -60,7 +62,7 @@
         bottom: 0;
         left: 0;
         height: 66px;
-        background-image: linear-gradient(to top, #FFFFFF, rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to top, $c_white, rgba($c_white, 0));
         content: '';
     }
 
@@ -84,7 +86,7 @@
     }
 
     &__detailsItemCaption {
-        color: #90A3BF;
+        color: $c_gray;
         font-size: 14px;
         font-weight: 500;
         letter-spacing: -0.28px;
@@ -111,7 +113,7 @@
 
     &__oldPrice {
         margin-top: 4px;
-        color: #90A3BF;
+        color: $c_gray;
         font-size: 14px;
         line-height: 20px;
         text-decoration: line-through;
@@ -119,7 +121,7 @@
     }
 
     &__price {
-        color: #1A202C;
+        color: $c_black;
         font-size: 20px;
         font-weight: 700;
         line-height: 24px;
@@ -127,7 +129,7 @@
     }
 
     &__subject {
-        color: #90A3BF;
+        color: $c_gray;
         font-size: 14px;
         font-weight: 700;
         line-height: 20px;

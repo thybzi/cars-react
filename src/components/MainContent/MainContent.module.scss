@@ -1,4 +1,6 @@
+@import '../../shared/colors.scss';
+
 .MainContent {
     padding: 32px;
-    background-color: #F6F7F9;
+    background-color: $c_lightGray;
 }
