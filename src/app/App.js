@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {AppContext} from './AppContext';
+import {CatalogItemContext} from '../components/CatalogItem/CatalogItemContext';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
@@ -51,7 +52,13 @@ export function App() {
         },
         {
             path: '/favorites',
-            element: <CatalogPage/>,
+            element: (
+                <CatalogItemContext.Provider value={{
+                    hasFavoriteIcon: false,
+                }}>
+                    <CatalogPage/>
+                </CatalogItemContext.Provider>
+            ),
             loader: async () => {
                 const res = await fetch(API_URL);
                 const data = await res.json();
