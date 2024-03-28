@@ -37,7 +37,7 @@ module.exports = {
         },
     },
     rules: {
-        'indent': ['error', 4, {ignoredNodes: ['TemplateLiteral *']}],
+        'indent': ['error', 4, {ignoredNodes: ['TemplateLiteral *'], SwitchCase: 1}],
         'no-multiple-empty-lines': ['error', {max: 2, maxEOF: 0}],
         'no-param-reassign': ['error', {props: false}],
         'no-restricted-syntax': 'off',
