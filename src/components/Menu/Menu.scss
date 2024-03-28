@@ -1,0 +1,18 @@
+.Menu {
+    display: flex;
+    padding: 20px 32px;
+    gap: 60px;
+
+    &__item {
+        color: #3563E9;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        text-decoration: underline;
+
+        &_active {
+            color: #1A202C;
+            text-decoration: none;
+        }
+    }
+}
