@@ -3,13 +3,14 @@ import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {processItemData} from '../helpers/processItemData';
 import {AppContext} from './AppContext';
 import {CatalogItemContext} from '../components/CatalogItem/CatalogItemContext';
+import {favoritesStorage} from '../storage/favoritesStorage';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
 
 export function App() {
     const apiUrl = 'https://660247539d7276a75552f2f5.mockapi.io/cars/list';
-    const [favorites, setFavorites] = useState(new Set());
+    const [favorites, setFavorites] = useState(favoritesStorage.getValue());
 
     function isItemFavorite(itemId) {
         return favorites.has(itemId);
@@ -25,6 +26,7 @@ export function App() {
         }
 
         setFavorites(newFavorites);
+        favoritesStorage.setValue(newFavorites);
     }
 
     const router = createHashRouter([
