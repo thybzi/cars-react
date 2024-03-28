@@ -13,6 +13,7 @@ module.exports = {
         'color-hex-length': 'long',
         'custom-property-pattern': null,
         'function-url-quotes': 'never',
+        'import-notation': 'string',
         'selector-class-pattern': null,
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': true,
