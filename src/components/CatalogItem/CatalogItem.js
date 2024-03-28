@@ -1,6 +1,7 @@
 import {useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+import clsx from 'clsx';
 import {selectFavorites} from '../../store/selectors';
 import {toggleItemFavorite} from '../../store/actions';
 import {CatalogItemContext} from './CatalogItemContext';
@@ -43,7 +44,10 @@ export function CatalogItem({
     }
 
     return (
-        <div className={classes.CatalogItem}>
+        <div className={clsx([
+            classes.CatalogItem,
+            !hasFavoriteIcon && classes.CatalogItem_noFavoriteIcon,
+        ])}>
             <div className={classes.CatalogItem__titleBlock}>
                 <div className={classes.CatalogItem__title}>{title}</div>
                 <div className={classes.CatalogItem__category}>{category}</div>
