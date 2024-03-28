@@ -2,6 +2,7 @@ import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from '../store/store';
 import {processItemData} from '../helpers/processItemData';
+import {CatalogItemContext} from '../components/CatalogItem/CatalogItemContext';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
@@ -34,7 +35,13 @@ export function App() {
         },
         {
             path: '/favorites',
-            element: <CatalogPage/>,
+            element: (
+                <CatalogItemContext.Provider value={{
+                    hasFavoriteIcon: false,
+                }}>
+                    <CatalogPage/>
+                </CatalogItemContext.Provider>
+            ),
             loader: async () => {
                 const {favorites} = store.getState();
                 const res = await fetch(apiUrl);

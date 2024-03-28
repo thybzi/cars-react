@@ -16,6 +16,10 @@
         margin-right: calc(var(--icon-size) + var(--catalogItem-pad));
     }
 
+    &_noFavoriteIcon &__titleBlock {
+        margin-right: 0;
+    }
+
     &__title {
         overflow: hidden;
         color: $c_black;
