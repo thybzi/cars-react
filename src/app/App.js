@@ -51,7 +51,7 @@ export function App() {
         },
         {
             path: '/favorites',
-            element: <CatalogPage noGalleryItemsFavoriteIcon={true}/>,
+            element: <CatalogPage/>,
             loader: async () => {
                 const res = await fetch(apiUrl);
                 const data = await res.json();

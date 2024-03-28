@@ -4,7 +4,6 @@ import {CatalogMore} from '../CatalogMore/CatalogMore';
 
 export function CatalogContent({
     galleryItems = [],
-    noGalleryItemsFavoriteIcon = false,
 }) {
     const ITEMS_LIMIT = 3;
     const [shownItemsCount, setShownItemsCount] = useState(ITEMS_LIMIT);
@@ -22,7 +21,6 @@ export function CatalogContent({
         <>
             <CatalogItemsGallery
                 items={galleryItems.slice(0, shownItemsCount)}
-                noItemsFavoriteIcon={noGalleryItemsFavoriteIcon}
             />
             {(shownItemsCount < galleryItems.length) && (
                 <CatalogMore
