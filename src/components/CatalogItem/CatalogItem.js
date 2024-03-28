@@ -1,6 +1,7 @@
 import {useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {AppContext} from '../../app/AppContext';
+import {CatalogItemContext} from './CatalogItemContext';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import classes from './CatalogItem.module.scss';
@@ -17,6 +18,7 @@ export function CatalogItem({
     oldPrice,
 }) {
     const {isItemFavorite, toggleItemFavorite} = useContext(AppContext);
+    const {hasFavoriteIcon} = useContext(CatalogItemContext);
     const [isFavorite, setIsFavorite] = useState(isItemFavorite(id));
     const navigate = useNavigate();
 
@@ -43,18 +45,20 @@ export function CatalogItem({
                 <div className={classes.CatalogItem__title}>{title}</div>
                 <div className={classes.CatalogItem__category}>{category}</div>
             </div>
-            <div
-                className={classes.CatalogItem__favorite}
-                onClick={() => {
-                    setIsFavorite(!isFavorite);
-                    toggleItemFavorite(id);
-                }}
-            >
-                <Icon
-                    name={favoriteIconName}
-                    auxClass={classes.CatalogItem__favoriteIcon}
-                />
-            </div>
+            {hasFavoriteIcon && (
+                <div
+                    className={classes.CatalogItem__favorite}
+                    onClick={() => {
+                        setIsFavorite(!isFavorite);
+                        toggleItemFavorite(id);
+                    }}
+                >
+                    <Icon
+                        name={favoriteIconName}
+                        auxClass={classes.CatalogItem__favoriteIcon}
+                    />
+                </div>
+            )}
             <div className={classes.CatalogItem__imageBlock}>
                 <img
                     className={classes.CatalogItem__image}
