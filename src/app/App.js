@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {AppContext} from './AppContext';
 import {CatalogItemContext} from '../components/CatalogItem/CatalogItemContext';
+import {favoritesStorage} from '../storage/favoritesStorage';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
@@ -9,7 +10,7 @@ import {processItemData} from '../helpers/processItemData';
 import {API_URL} from '../shared/settings';
 
 export function App() {
-    const [favorites, setFavorites] = useState(new Set());
+    const [favorites, setFavorites] = useState(favoritesStorage.getValue());
 
     function isItemFavorite(itemId) {
         return favorites.has(itemId);
@@ -25,6 +26,7 @@ export function App() {
         }
 
         setFavorites(newFavorites);
+        favoritesStorage.setValue(newFavorites);
     }
 
     const router = createHashRouter([
