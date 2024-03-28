@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {MainContent} from '../../components/MainContent/MainContent';
+import {MainContent} from '../components/MainContent/MainContent';
 
 export function HomePage() {
     return (
