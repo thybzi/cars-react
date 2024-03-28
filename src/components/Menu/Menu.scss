@@ -1,17 +1,19 @@
+@import '../../shared/colors.scss';
+
 .Menu {
     display: flex;
     padding: 20px 32px;
     gap: 60px;
 
     &__item {
-        color: #3563E9;
+        color: $c_blue;
         font-size: 16px;
         font-weight: 600;
         line-height: 24px;
         text-decoration: underline;
 
         &_active {
-            color: #1A202C;
+            color: $c_black;
             text-decoration: none;
         }
     }

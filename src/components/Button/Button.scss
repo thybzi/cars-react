@@ -1,10 +1,12 @@
+@import '../../shared/colors.scss';
+
 .Button {
     height: 44px;
     box-sizing: border-box;
     padding: 10px 20px;
     border-radius: 4px;
-    background-color: #3563E9;
-    color: #FFFFFF;
+    background-color: $c_blue;
+    color: $c_white;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
