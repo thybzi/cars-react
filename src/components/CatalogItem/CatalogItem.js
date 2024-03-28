@@ -1,6 +1,8 @@
 import {useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {AppContext} from '../../app/AppContext';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectFavorites} from '../../store/selectors';
+import {toggleItemFavorite} from '../../store/actions';
 import {CatalogItemContext} from './CatalogItemContext';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
@@ -17,10 +19,11 @@ export function CatalogItem({
     price,
     oldPrice,
 }) {
-    const {isItemFavorite, toggleItemFavorite} = useContext(AppContext);
+    const favorites = useSelector(selectFavorites);
     const {hasFavoriteIcon} = useContext(CatalogItemContext);
-    const [isFavorite, setIsFavorite] = useState(isItemFavorite(id));
+    const [isFavorite, setIsFavorite] = useState(favorites.has(id));
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const favoriteIconName = isFavorite ? 'heart' : 'heartOutline';
 
@@ -50,7 +53,7 @@ export function CatalogItem({
                     className={classes.CatalogItem__favorite}
                     onClick={() => {
                         setIsFavorite(!isFavorite);
-                        toggleItemFavorite(id);
+                        dispatch(toggleItemFavorite(id));
                     }}
                 >
                     <Icon

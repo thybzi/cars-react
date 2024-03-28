@@ -1,33 +1,14 @@
-import {useState} from 'react';
 import {RouterProvider, createHashRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {store} from '../store/store';
 import {processItemData} from '../helpers/processItemData';
-import {AppContext} from './AppContext';
 import {CatalogItemContext} from '../components/CatalogItem/CatalogItemContext';
-import {favoritesStorage} from '../storage/favoritesStorage';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
 
 export function App() {
     const apiUrl = 'https://660247539d7276a75552f2f5.mockapi.io/cars/list';
-    const [favorites, setFavorites] = useState(favoritesStorage.getValue());
-
-    function isItemFavorite(itemId) {
-        return favorites.has(itemId);
-    }
-
-    function toggleItemFavorite(itemId) {
-        const newFavorites = new Set(favorites);
-
-        if (newFavorites.has(itemId)) {
-            newFavorites.delete(itemId);
-        } else {
-            newFavorites.add(itemId);
-        }
-
-        setFavorites(newFavorites);
-        favoritesStorage.setValue(newFavorites);
-    }
 
     const router = createHashRouter([
         {
@@ -62,20 +43,17 @@ export function App() {
                 </CatalogItemContext.Provider>
             ),
             loader: async () => {
+                const {favorites} = store.getState();
                 const res = await fetch(apiUrl);
                 const data = await res.json();
-                return data.filter(({id}) => (isItemFavorite(id))).map(processItemData);
+                return data.filter(({id}) => (favorites.has(id))).map(processItemData);
             },
         },
     ]);
 
     return (
-        <AppContext.Provider value={{
-            favorites,
-            isItemFavorite,
-            toggleItemFavorite,
-        }}>
+        <Provider store={store}>
             <RouterProvider router={router}/>
-        </AppContext.Provider>
+        </Provider>
     );
 }
