@@ -1,10 +1,10 @@
-import './MainContent.scss';
+import classes from './MainContent.module.scss';
 
 export function MainContent({
     children,
 }) {
     return (
-        <div className="MainContent">
+        <div className={classes.MainContent}>
             {children}
         </div>
     );
