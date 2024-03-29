@@ -1,9 +1,12 @@
-import {createStore} from 'redux';
+import {configureStore} from '@reduxjs/toolkit';
 import {reducer} from './reducer';
 import {favoritesStorage} from '../storage/favoritesStorage';
 
-export const store = createStore(reducer, {
-    favorites: favoritesStorage.getValue(),
+export const store = configureStore({
+    reducer,
+    preloadedState: {
+        favorites: favoritesStorage.getValue(),
+    },
 });
 
 store.subscribe(() => {
