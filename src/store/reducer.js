@@ -1,10 +1,10 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {actions} from './actions';
+import {toggleItemFavorite} from './actions';
 
 
 export const reducer = createReducer({}, (builder) => {
     builder
-        .addCase(actions.ITEM_FAVORITE_TOGGLE, (state, action) => {
+        .addCase(toggleItemFavorite, (state, action) => {
             const {id} = action.payload;
             const favoritesSet = new Set(state.favorites);
 
