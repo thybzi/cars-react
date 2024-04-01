@@ -1,9 +1,21 @@
 import {useNavigate} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {toggleItemFavorite} from '../../store/actions';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import classes from './CatalogItem.module.scss';
+
+export interface CatalogItemProps {
+    id: string
+    title: string
+    category: string
+    image: string
+    volume: number
+    gear: string
+    capacity: number
+    price: string
+    oldPrice: string
+}
 
 export function CatalogItem({
     id,
@@ -15,18 +27,23 @@ export function CatalogItem({
     capacity,
     price,
     oldPrice,
-}) {
-    const isFavorite = useSelector((state) => (state.favorites.includes(id)));
-    const dispatch = useDispatch();
+}: CatalogItemProps) {
+    const isFavorite = useAppSelector((state) => (state.favorites.includes(id)));
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const favoriteIconElemClass = 'CatalogItem__favoriteIcon';
     const favoriteIconName = isFavorite ? 'heart' : 'heartOutline';
 
+    interface DetailsProps {
+        iconName: string
+        text: string
+    }
+
     function Details({
         iconName,
         text,
-    }) {
+    }: DetailsProps) {
         return (
             <div className={classes.CatalogItem__detailsItem}>
                 <Icon

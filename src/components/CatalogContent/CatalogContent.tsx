@@ -1,10 +1,15 @@
 import {useState} from 'react';
 import {CatalogItemsGallery} from '../CatalogItemsGallery/CatalogItemsGallery';
+import type {CatalogItemProps} from '../CatalogItem/CatalogItem';
 import {CatalogMore} from '../CatalogMore/CatalogMore';
+
+interface CatalogContentProps {
+    galleryItems: CatalogItemProps[]
+}
 
 export function CatalogContent({
     galleryItems = [],
-}) {
+}: CatalogContentProps) {
     const ITEMS_LIMIT = 3;
     const [shownItemsCount, setShownItemsCount] = useState(ITEMS_LIMIT);
 

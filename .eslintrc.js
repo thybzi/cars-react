@@ -20,12 +20,21 @@ module.exports = {
                 sourceType: 'script',
             },
         },
+        {
+            files: ['*.ts', '*.tsx'],
+            extends: [
+                'plugin:@typescript-eslint/eslint-recommended',
+                'plugin:@typescript-eslint/recommended',
+            ],
+            parser: '@typescript-eslint/parser',
+            plugins: ['@typescript-eslint'],
+        },
     ],
     parserOptions: {
         ecmaVersion: 'latest',
     },
     settings: {
-        react: {
+        'react': {
             createClass: 'createReactClass', // Regex for Component Factory to use,
             // default to "createReactClass"
             pragma: 'React', // Pragma to use, default to "React"
@@ -35,9 +44,17 @@ module.exports = {
             // It will default to "latest" and warn if missing, and to "detect" in the future
             flowVersion: '0.53', // Flow version
         },
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
     },
     rules: {
         'indent': ['error', 4, {ignoredNodes: ['TemplateLiteral *'], SwitchCase: 1}],
+        'import/extensions': ['error', 'ignorePackages', {
+            js: 'never', jsx: 'never', ts: 'never', tsx: 'never',
+        }],
         'no-multiple-empty-lines': ['error', {max: 2, maxEOF: 0}],
         'no-param-reassign': ['error', {props: false}],
         'no-restricted-syntax': 'off',

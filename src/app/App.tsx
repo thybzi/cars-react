@@ -1,6 +1,6 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {store} from '../store/store';
+import {RootState, store} from '../store/store';
 import {processItemData} from '../helpers/processItemData';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
@@ -36,7 +36,7 @@ export function App() {
             path: '/favorites',
             element: <CatalogPage/>,
             loader: async () => {
-                const {favorites} = store.getState();
+                const {favorites} = store.getState() as RootState;
                 const res = await fetch(apiUrl);
                 const data = await res.json();
                 return data
