@@ -1,10 +1,3 @@
-export const actions = {
-    ITEM_FAVORITE_TOGGLE: 'ITEM_FAVORITE_TOGGLE',
-};
+import {createAction} from '@reduxjs/toolkit';
 
-export const toggleItemFavorite = ({id}) => ({
-    type: actions.ITEM_FAVORITE_TOGGLE,
-    payload: {
-        id,
-    },
-});
+export const toggleItemFavorite = createAction('ITEM_FAVORITE_TOGGLE');

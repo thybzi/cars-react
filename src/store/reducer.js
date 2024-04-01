@@ -1,9 +1,10 @@
-import {actions} from './actions';
+import {createReducer} from '@reduxjs/toolkit';
+import {toggleItemFavorite} from './actions';
 
 
-export function reducer(state, action) {
-    switch (action.type) {
-        case actions.ITEM_FAVORITE_TOGGLE: {
+export const reducer = createReducer({}, (builder) => {
+    builder
+        .addCase(toggleItemFavorite, (state, action) => {
             const {id} = action.payload;
             const favoritesSet = new Set(state.favorites);
 
@@ -13,13 +14,6 @@ export function reducer(state, action) {
                 favoritesSet.add(id);
             }
 
-            return {
-                ...state,
-                favorites: Array.from(favoritesSet),
-            };
-        }
-
-        default:
-            return state;
-    }
-}
+            state.favorites = Array.from(favoritesSet);
+        });
+});
