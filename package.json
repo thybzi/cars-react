@@ -38,6 +38,7 @@
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.4.3",
     "typescript-eslint": "^7.4.0",
     "webpack": "^5.91.0",

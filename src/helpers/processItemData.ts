@@ -1,10 +1,12 @@
+import type {CatalogItemProps} from '../components/CatalogItem/CatalogItem';
+
 export function processItemData({
     id,
     image,
     price,
     oldPrice,
     ...props
-}) {
+}: CatalogItemProps): CatalogItemProps {
     const imageValue = `${image}?${id}`
         .replace('/480/', '/300/')
         .replace('/transport', '/cars');
