@@ -64,7 +64,7 @@ module.exports = {
         'quote-props': ['error', 'consistent-as-needed'],
         'import/no-default-export': 'error',
         'import/prefer-default-export': 'off',
-        // @TODO разобраться с этими настройками
+        // disable this option as we make typechecks using TypeScript
         'react/prop-types': 'off',
     },
 };
