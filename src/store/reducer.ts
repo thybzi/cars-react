@@ -1,9 +1,10 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {toggleItemFavorite} from './actions';
 import type {RootState} from './store';
+import {getDefaultState} from './store';
 
 
-export const reducer = createReducer({}, (builder) => {
+export const reducer = createReducer(getDefaultState(), (builder) => {
     builder
         .addCase(toggleItemFavorite, (state: RootState, action) => {
             const {id} = action.payload;
