@@ -1,15 +1,13 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import type {RootState} from '../store/store';
 import {store} from '../store/store';
-import {processItemData} from '../helpers/processItemData';
+import {loadCarsList} from '../api/loadCarsList';
+import {loadCarItem} from '../api/loadCarItem';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
 
 export function App() {
-    const apiUrl = 'https://660247539d7276a75552f2f5.mockapi.io/cars/list';
-
     const router = createHashRouter([
         {
             path: '/',
@@ -18,31 +16,23 @@ export function App() {
         {
             path: '/catalog',
             element: <CatalogPage/>,
-            loader: async () => {
-                const res = await fetch(apiUrl);
-                const data = await res.json();
-                return data.map(processItemData);
-            },
+            loader: loadCarsList,
         },
         {
             path: '/catalog/:itemId',
             element: <ItemPage/>,
             loader: async ({params}) => {
-                const res = await fetch(`${apiUrl}/${params.itemId}`);
-                const data = await res.json();
-                return processItemData(data);
+                const data = await loadCarItem(params.itemId as string);
+                return data;
             },
         },
         {
             path: '/favorites',
             element: <CatalogPage/>,
             loader: async () => {
-                const {favorites} = store.getState() as RootState;
-                const res = await fetch(apiUrl);
-                const data = await res.json();
-                return data
-                    .filter(({id}) => (favorites.includes(id)))
-                    .map(processItemData);
+                const {favorites} = store.getState();
+                const data = await loadCarsList();
+                return data.filter(({id}) => (favorites.includes(id)));
             },
         },
     ]);
