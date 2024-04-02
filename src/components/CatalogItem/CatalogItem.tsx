@@ -1,20 +1,12 @@
 import {useNavigate} from 'react-router-dom';
+import type {CarItemData} from '../../api/types';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {toggleItemFavorite} from '../../store/actions';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import classes from './CatalogItem.module.scss';
 
-export interface CatalogItemProps {
-    id: string
-    title: string
-    category: string
-    image: string
-    volume: number
-    gear: string
-    capacity: number
-    price: string
-    oldPrice: string
+export interface CatalogItemProps extends CarItemData {
 }
 
 export function CatalogItem({
