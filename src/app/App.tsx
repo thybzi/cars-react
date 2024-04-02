@@ -1,6 +1,7 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {RootState, store} from '../store/store';
+import type {RootState} from '../store/store';
+import {store} from '../store/store';
 import {processItemData} from '../helpers/processItemData';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';

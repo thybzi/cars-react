@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {toggleItemFavorite} from './actions';
-import {RootState} from './store';
+import type {RootState} from './store';
 
 
 export const reducer = createReducer({}, (builder) => {
