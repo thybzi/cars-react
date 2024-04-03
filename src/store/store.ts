@@ -1,21 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {reducer} from './reducer';
-import {readFavorites, storeFavorites} from '../storage/local';
-
-export type RootState = {
-    favorites: string[]
-};
-
-const initialState = {
-    favorites: readFavorites() || [],
-} as RootState;
+import {storeFavorites} from '../storage/local';
+import {favoritesReducer} from './slices/favorites';
 
 export const store = configureStore({
-    reducer,
-    preloadedState: initialState,
+    reducer: {
+        favorites: favoritesReducer,
+    },
 });
 
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
 
 store.subscribe(() => {
     const {favorites} = store.getState();
