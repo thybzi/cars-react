@@ -67,6 +67,7 @@ module.exports = {
         'no-restricted-syntax': 'off',
         'no-underscore-dangle': 'off',
         'no-use-before-define': ['error', {functions: false}],
+        'no-void': 'off',
         'object-curly-spacing': ['error', 'never'],
         'quote-props': ['error', 'consistent-as-needed'],
         'import/no-default-export': 'error',

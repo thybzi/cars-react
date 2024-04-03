@@ -1,8 +1,10 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {store} from '../store/store';
+import {fetchUser} from '../store/slices/user';
 import {loadCarsList} from '../api/loadCarsList';
 import {loadCarItem} from '../api/loadCarItem';
+import {loginAction} from './loginAction';
 import {Layout} from './Layout';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
@@ -13,15 +15,21 @@ export function App() {
         {
             path: '/',
             element: <Layout/>,
+            loader: () => {
+                void store.dispatch(fetchUser());
+                return null;
+            },
             children: [
                 {
                     path: '/',
                     element: <HomePage/>,
+                    action: loginAction,
                 },
                 {
                     path: '/catalog',
                     element: <CatalogPage/>,
                     loader: loadCarsList,
+                    action: loginAction,
                 },
                 {
                     path: '/catalog/:itemId',
@@ -30,6 +38,7 @@ export function App() {
                         const data = await loadCarItem(params.itemId as string);
                         return data;
                     },
+                    action: loginAction,
                 },
                 {
                     path: '/favorites',
@@ -39,6 +48,7 @@ export function App() {
                         const data = await loadCarsList();
                         return data.filter(({id}) => (favorites.includes(id)));
                     },
+                    action: loginAction,
                 },
             ],
         },
