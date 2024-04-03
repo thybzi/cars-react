@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import classes from './Button.module.scss';
 
-interface ButtonProps extends React.HTMLProps<HTMLDivElement> {
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
     text: string
-    auxClass: string
+    auxClass?: string
+    type?: 'submit' | 'reset' | 'button'
 }
 
 export function Button({
@@ -12,11 +13,11 @@ export function Button({
     ...props
 }: ButtonProps) {
     return (
-        <div
+        <button
             className={clsx([classes.Button, auxClass])}
             {...props}
         >
             {text}
-        </div>
+        </button>
     );
 }
