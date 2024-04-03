@@ -1,0 +1,8 @@
+@import '../../shared/colors.scss';
+
+.ErrorBoundary {
+    padding: 40px;
+    color: $c_black;
+    text-align: center;
+    font-size: 24px;
+}
