@@ -1,8 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {reducer} from './reducer';
-
-const lsKey = 'cars';
-const lsValue = localStorage.getItem(lsKey);
+import {readFavorites, storeFavorites} from '../storage/local';
 
 export type RootState = {
     favorites: string[]
@@ -10,11 +8,11 @@ export type RootState = {
 
 export function getDefaultState(): RootState {
     return {
-        favorites: [],
+        favorites: readFavorites() || [],
     };
 }
 
-const initialState = lsValue ? JSON.parse(lsValue) as RootState : getDefaultState();
+const initialState = getDefaultState();
 
 export const store = configureStore({
     reducer,
@@ -24,5 +22,6 @@ export const store = configureStore({
 export type AppDispatch = typeof store.dispatch;
 
 store.subscribe(() => {
-    localStorage.setItem(lsKey, JSON.stringify(store.getState()));
+    const {favorites} = store.getState();
+    storeFavorites(favorites);
 });
