@@ -6,6 +6,7 @@ import {loadCarsList} from '../api/loadCarsList';
 import {loadCarItem} from '../api/loadCarItem';
 import {loginAction} from './loginAction';
 import {Layout} from './Layout';
+import {ErrorBoundary} from '../components/ErrorBoundary/ErrorBoundary';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
@@ -15,6 +16,7 @@ export function App() {
         {
             path: '/',
             element: <Layout/>,
+            errorElement: <ErrorBoundary/>,
             loader: () => {
                 void store.dispatch(fetchUser());
                 return null;
