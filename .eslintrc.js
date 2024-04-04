@@ -72,6 +72,7 @@ module.exports = {
         'quote-props': ['error', 'consistent-as-needed'],
         'import/no-default-export': 'error',
         'import/prefer-default-export': 'off',
+        'import/no-extraneous-dependencies': ['error', {devDependencies: ['**/*.test.*']}],
         // no need to check types here as we have TypeScript
         'react/prop-types': 'off',
     },
