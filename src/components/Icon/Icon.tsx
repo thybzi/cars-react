@@ -3,7 +3,7 @@ import classes from './Icon.module.scss';
 
 interface IconProps {
     name: string
-    auxClass: string
+    auxClass?: string
 }
 
 export function Icon({
