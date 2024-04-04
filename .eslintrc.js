@@ -25,9 +25,16 @@ module.exports = {
             extends: [
                 'plugin:@typescript-eslint/eslint-recommended',
                 'plugin:@typescript-eslint/recommended',
+                'plugin:@typescript-eslint/recommended-requiring-type-checking',
             ],
             parser: '@typescript-eslint/parser',
             plugins: ['@typescript-eslint'],
+            rules: {
+                '@typescript-eslint/consistent-type-imports': 'error',
+            },
+            parserOptions: {
+                project: ['./tsconfig.json'],
+            },
         },
     ],
     parserOptions: {
@@ -64,7 +71,7 @@ module.exports = {
         'quote-props': ['error', 'consistent-as-needed'],
         'import/no-default-export': 'error',
         'import/prefer-default-export': 'off',
-        // @TODO разобраться с этими настройками
+        // no need to check types here as we have TypeScript
         'react/prop-types': 'off',
     },
 };

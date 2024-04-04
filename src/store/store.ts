@@ -8,9 +8,11 @@ export type RootState = {
     favorites: string[]
 };
 
-const initialState: RootState = lsValue ? JSON.parse(lsValue) : {
-    favorites: [],
-};
+const initialState = lsValue
+    ? JSON.parse(lsValue) as RootState
+    : {
+        favorites: [],
+    } as RootState;
 
 export const store = configureStore({
     reducer,

@@ -4,17 +4,9 @@ import {toggleItemFavorite} from '../../store/actions';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import classes from './CatalogItem.module.scss';
+import type {CarItemData} from '../../api/types';
 
-export interface CatalogItemProps {
-    id: string
-    title: string
-    category: string
-    image: string
-    volume: number
-    gear: string
-    capacity: number
-    price: string
-    oldPrice: string
+export interface CatalogItemProps extends CarItemData {
 }
 
 export function CatalogItem({

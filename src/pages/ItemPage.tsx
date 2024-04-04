@@ -1,7 +1,8 @@
 import {useLoaderData} from 'react-router-dom';
-import {useSelector} from 'react-redux';
 import {Menu} from '../components/Menu/Menu';
 import {MainContent} from '../components/MainContent/MainContent';
+import type {CarItemData} from '../api/types';
+import {useAppSelector} from '../store/hooks';
 
 export function ItemPage() {
     const {
@@ -9,9 +10,9 @@ export function ItemPage() {
         image,
         title,
         description,
-    } = useLoaderData();
+    } = useLoaderData() as CarItemData;
 
-    const isFavorite = useSelector((state) => (state.favorites.includes(id)));
+    const isFavorite = useAppSelector((state) => (state.favorites.includes(id)));
 
     return (
         <>
