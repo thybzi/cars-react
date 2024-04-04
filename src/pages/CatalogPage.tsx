@@ -1,6 +1,4 @@
 import {useLoaderData} from 'react-router-dom';
-import {Menu} from '../components/Menu/Menu';
-import {MainContent} from '../components/MainContent/MainContent';
 import {CatalogContent} from '../components/CatalogContent/CatalogContent';
 import type {CarItemData} from '../api/types';
 
@@ -9,10 +7,7 @@ export function CatalogPage() {
 
     return (
         <>
-            <Menu/>
-            <MainContent>
-                <CatalogContent galleryItems={galleryItems}/>
-            </MainContent>
+            <CatalogContent galleryItems={galleryItems}/>
         </>
     );
 }

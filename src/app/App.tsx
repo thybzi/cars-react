@@ -6,31 +6,38 @@ import {CatalogPage} from '../pages/CatalogPage';
 import {ItemPage} from '../pages/ItemPage';
 import {loadCarsList} from '../api/loadCarsList';
 import {loadCarItem} from '../api/loadCarItem';
+import {Layout} from './Layout';
 
 export function App() {
     const router = createHashRouter([
         {
             path: '/',
-            element: <HomePage/>,
-        },
-        {
-            path: '/catalog',
-            element: <CatalogPage/>,
-            loader: loadCarsList,
-        },
-        {
-            path: '/catalog/:itemId',
-            element: <ItemPage/>,
-            loader: async ({params}) => (loadCarItem(params.itemId as string)),
-        },
-        {
-            path: '/favorites',
-            element: <CatalogPage/>,
-            loader: async () => {
-                const {favorites} = store.getState();
-                const data = await loadCarsList();
-                return data.filter(({id}) => (favorites.includes(id)));
-            },
+            element: <Layout/>,
+            children: [
+                {
+                    path: '/',
+                    element: <HomePage/>,
+                },
+                {
+                    path: '/catalog',
+                    element: <CatalogPage/>,
+                    loader: loadCarsList,
+                },
+                {
+                    path: '/catalog/:itemId',
+                    element: <ItemPage/>,
+                    loader: async ({params}) => (loadCarItem(params.itemId as string)),
+                },
+                {
+                    path: '/favorites',
+                    element: <CatalogPage/>,
+                    loader: async () => {
+                        const {favorites} = store.getState();
+                        const data = await loadCarsList();
+                        return data.filter(({id}) => (favorites.includes(id)));
+                    },
+                },
+            ],
         },
     ]);
 
