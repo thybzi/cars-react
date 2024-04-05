@@ -14,6 +14,7 @@ module.exports = {
         'custom-property-pattern': null,
         'function-url-quotes': 'never',
         'import-notation': 'string',
+        'media-feature-range-notation': 'prefix',
         'selector-class-pattern': null,
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': true,

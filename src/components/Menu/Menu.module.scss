@@ -1,8 +1,13 @@
 @import '../../shared/colors.scss';
+@import '../../shared/media.scss';
 
 .Menu {
     display: flex;
     gap: 60px;
+
+    @include m_mobile {
+        gap: 20px;
+    }
 
     &__item {
         color: $c_blue;
