@@ -1,5 +1,5 @@
 import {Outlet, useNavigation} from 'react-router-dom';
-import {Menu} from '../components/Menu/Menu';
+import {Header} from '../components/Header/Header';
 import {MainContent} from '../components/MainContent/MainContent';
 import {Loading} from '../components/Loading/Loading';
 
@@ -9,7 +9,7 @@ export function Layout() {
 
     return (
         <>
-            <Menu/>
+            <Header/>
             <MainContent>
                 {isLoading ? <Loading/> : <Outlet/>}
             </MainContent>
