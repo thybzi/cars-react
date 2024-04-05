@@ -8,27 +8,37 @@ import {loadCarsList} from '../api/loadCarsList';
 import {loadCarItem} from '../api/loadCarItem';
 import {Layout} from './Layout';
 import {ErrorBoundary} from '../components/ErrorBoundary/ErrorBoundary';
+import {loginAction} from './loginAction';
+import {fetchUser} from '../store/slices/user';
 
 export function App() {
     const router = createHashRouter([
         {
             path: '/',
             element: <Layout/>,
+            loader: () => {
+                void store.dispatch(fetchUser());
+                return null;
+            },
             children: [
                 {
                     path: '/',
                     element: <HomePage/>,
+                    action: loginAction,
+                    errorElement: <ErrorBoundary/>,
                 },
                 {
                     path: '/catalog',
                     element: <CatalogPage/>,
                     loader: loadCarsList,
+                    action: loginAction,
                     errorElement: <ErrorBoundary/>,
                 },
                 {
                     path: '/catalog/:itemId',
                     element: <ItemPage/>,
                     loader: async ({params}) => (loadCarItem(params.itemId as string)),
+                    action: loginAction,
                     errorElement: <ErrorBoundary/>,
                 },
                 {
@@ -39,6 +49,7 @@ export function App() {
                         const data = await loadCarsList();
                         return data.filter(({id}) => (favorites.includes(id)));
                     },
+                    action: loginAction,
                     errorElement: <ErrorBoundary/>,
                 },
             ],
