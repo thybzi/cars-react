@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {toggleItemFavorite} from '../../store/actions';
+import {toggleItemFavorite} from '../../store/slices/favorites';
 import {Icon} from '../Icon/Icon';
 import {Button} from '../Button/Button';
 import classes from './CatalogItem.module.scss';
