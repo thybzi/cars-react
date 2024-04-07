@@ -1,5 +1,6 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import {LoginFormContext} from '../components/LoginForm/LoginFormContext';
 import {store} from '../store/store';
 import {HomePage} from '../pages/HomePage';
 import {CatalogPage} from '../pages/CatalogPage';
@@ -20,6 +21,13 @@ export function App() {
                 void store.dispatch(fetchUser());
                 return null;
             },
+            errorElement: (
+                <LoginFormContext.Provider value={{
+                    hasError: true,
+                }}>
+                    <Layout/>
+                </LoginFormContext.Provider>
+            ),
             children: [
                 {
                     path: '/',

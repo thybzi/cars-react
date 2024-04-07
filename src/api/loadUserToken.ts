@@ -11,6 +11,10 @@ export async function loadUserToken(username: string, password: string) {
         }),
     });
 
+    if (!res.ok) {
+        throw new Error(`${res.status} ${res.statusText}`);
+    }
+
     const data = await res.json() as UserDataWithToken;
 
     return data.token;
