@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Mercedes Benz Aventador",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "category": "Wagon",
+        "isFavorite": true,
+        "image": "https://loremflickr.com/640/300/cars?422",
+        "volume": 58,
+        "gear": "Gasoline",
+        "capacity": 54,
+        "price": "55.99",
+        "oldPrice": "555.00",
+        "id": "422"
+    },
+    {
+        "title": "Aston Martin CTS",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "category": "Cargo Van",
+        "isFavorite": false,
+        "image": "https://loremflickr.com/640/300/cars?352",
+        "volume": 40,
+        "gear": "Electric",
+        "capacity": 56,
+        "price": "640.00",
+        "oldPrice": null,
+        "id": "352"
+    },
+    {
+        "title": "Honda 2",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "category": "Coupe",
+        "isFavorite": true,
+        "image": "https://loremflickr.com/640/300/cars?357",
+        "volume": 94,
+        "gear": "Hybrid",
+        "capacity": 27,
+        "price": "691.00",
+        "oldPrice": null,
+        "id": "357"
+    },
+    {
+        "title": "Dodge Mustang",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        "category": "Sedan",
+        "isFavorite": true,
+        "image": "https://loremflickr.com/640/300/cars?374",
+        "volume": 41,
+        "gear": "Gasoline",
+        "capacity": 61,
+        "price": "943.00",
+        "oldPrice": "883.00",
+        "id": "374"
+    },
+    {
+        "title": "Smart Fortwo",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+        "category": "Hatchback",
+        "isFavorite": false,
+        "image": "https://loremflickr.com/640/300/cars?375",
+        "volume": 29,
+        "gear": "Electric",
+        "capacity": 15,
+        "price": "526.00",
+        "oldPrice": "617.00",
+        "id": "375"
+    }
+]
