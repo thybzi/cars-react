@@ -1,0 +1,17 @@
+@mixin m_mobile() {
+    @include m_max(768px) {
+        @content;
+    }
+}
+
+@mixin m_tablet() {
+    @include m_max(1024px) {
+        @content;
+    }
+}
+
+@mixin m_max($max-width) {
+    @media (max-width: $max-width) {
+        @content;
+    }
+}
