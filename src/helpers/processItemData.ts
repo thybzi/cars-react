@@ -14,7 +14,7 @@ export function processItemData({
     const priceValue = parseFloat(price);
     let oldPriceValue: number | null = parseFloat(oldPrice as string);
 
-    if (oldPriceValue < priceValue) {
+    if (oldPriceValue <= priceValue) {
         oldPriceValue = null;
     }
 
